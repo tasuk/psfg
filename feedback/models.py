@@ -7,18 +7,30 @@ class Questionnaire(models.Model):
     name = models.CharField(max_length=200)
 
 class Question(models.Model):
+    TEXT = 't'
+    CHOICE = 'c'
+    MULTIPLE_CHOICE = 'm'
+
     questionnaire = models.ForeignKey(Questionnaire)
+    label = models.CharField(max_length=200)
     question_type = models.CharField(max_length=1, choices=(
-        ('t', 'text'),
-        ('c', 'choice'),
-        ('m', 'multichoice'),
+        (TEXT, 'text'),
+        (CHOICE, 'choice'),
+        (MULTIPLE_CHOICE, 'multiplechoice'),
     ))
     mandatory = models.BooleanField(default=False)
+    order = models.IntegerField()
+
+class Option(models.Model):
+    question = models.ForeignKey(Question)
+    name = models.CharField(max_length=200)
+    label = models.CharField(max_length=200)
+    order = models.IntegerField()
 
 class Feedback(models.Model):
+    questionnaire = models.ForeignKey(Questionnaire)
     creator = models.ForeignKey(User, related_name='feedback_creator')
     answerer = models.ForeignKey(User, related_name='feedback_answerer')
-    questionnaire = models.ForeignKey(Questionnaire)
 
 class Answer(models.Model):
     feedback = models.ForeignKey(Feedback)
