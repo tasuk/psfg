@@ -13,11 +13,11 @@ class Question(models.Model):
         ('c', 'choice'),
         ('m', 'multichoice'),
     ))
-    mandatory = models.BooleanField()
+    mandatory = models.BooleanField(default=False)
 
 class Feedback(models.Model):
-    creator = models.ForeignKey(User)
-    answerer = models.ForeignKey(User)
+    creator = models.ForeignKey(User, related_name='feedback_creator')
+    answerer = models.ForeignKey(User, related_name='feedback_answerer')
     questionnaire = models.ForeignKey(Questionnaire)
 
 class Answer(models.Model):
