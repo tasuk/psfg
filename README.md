@@ -10,8 +10,17 @@ Install
 
 Install Python3, pip, then install requirements:
 
-    pip3 install -r requirements.txt
+    pip install -r requirements.txt
+
+Don't commit migrations in the repo until go live, instead, generate them on
+the fly:
+
+    python manage.py makemigrations
+
+Run migrations:
+
+    python manage.py migrate
 
 Run the dev server:
 
-    python3 manage.py runserver
+    python manage.py runserver
