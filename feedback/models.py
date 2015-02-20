@@ -28,7 +28,7 @@ class Option(models.Model):
 class Feedback(models.Model):
     questionnaire = models.ForeignKey(Questionnaire)
     creator = models.ForeignKey(User, related_name='feedback_creator')
-    answerer = models.ForeignKey(User, related_name='feedback_answerer')
+    answerer = models.ForeignKey(User, related_name='feedback_answerer', blank=True, null=True)
 
 class Answer(models.Model):
     feedback = models.ForeignKey(Feedback)
