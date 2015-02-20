@@ -9,14 +9,12 @@ class Questionnaire(models.Model):
 class Question(models.Model):
     TEXT = 't'
     CHOICE = 'c'
-    MULTIPLE_CHOICE = 'm'
 
     questionnaire = models.ForeignKey(Questionnaire)
     label = models.CharField(max_length=200)
     question_type = models.CharField(max_length=1, choices=(
         (TEXT, 'text'),
         (CHOICE, 'choice'),
-        (MULTIPLE_CHOICE, 'multiplechoice'),
     ))
     mandatory = models.BooleanField(default=False)
     order = models.IntegerField()
