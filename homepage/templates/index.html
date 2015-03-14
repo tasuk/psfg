@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>People Skills For Geeks</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body { font-family: "Roboto"; }
+        h1 { color: #444; }
+        #blocks a {
+            border: 10px solid transparent;
+            display: block;
+            color: #FFF;
+            font-size: 30px;
+            height: 150px;
+            padding: 20px 20px 20px 100px;
+            margin-bottom: 10px;
+            position: relative;
+            text-decoration: none;
+        }
+        @media (max-width: 992px) { #blocks a { height: auto; } }
+        #blocks a:hover {
+            background-color: #FFF;
+            text-decoration: none;
+        }
+        #feedback a { background-color: #337AB7; }
+        #feedback a:hover { border-color: #337AB7; color: #337AB7; }
+        #newsletter a { background-color: #B7B233; }
+        #newsletter a:hover { border-color: #B7B233; color: #B7B233; }
+        #meetups a { background-color: #B73338; }
+        #meetups a:hover { border-color: #B73338; color: #B73338; }
+
+        #blocks a i {
+            left: 0px;
+            width: 100px;
+            font-size: 50px;
+            position: absolute;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>People Skills For Geeks</h1>
+    <hr>
+</div>
+<div id="blocks" class="container">
+    <div class="row">
+        <div class="col-md-4" id="feedback"><a href="/feedback"><i class="fa fa-repeat"></i>Personal Feedback</a></div>
+        <div class="col-md-4" id="newsletter"><a href="http://eepurl.com/bcn2t5"><i class="fa fa-newspaper-o"></i> Newsletter</a></div>
+        <div class="col-md-4" id="meetups"><a href="http://www.meetup.com/People-Skills-for-Geeks"><i class="fa fa-users"></i>Meetups in Warsaw</a></div>
+    </div>
+</div>
+</body>
+</html>
