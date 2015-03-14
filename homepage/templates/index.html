@@ -2,17 +2,22 @@
 <html>
 <head>
     <title>People Skills For Geeks</title>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,700,400italic,700italic">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <style>
-        body { padding-top: 70px; font-family: "Roboto"; }
+        body { padding-top: 70px; font-family: "Roboto"; font-size: 16px; }
         .navbar { font-size: 20px; }
         .navbar-brand { font-size: inherit; }
         h1 { text-align: center; }
+        h1, h2, h3 { font-weight: bold; }
+        li { list-style-type: square; }
+        .box { padding: 1px 30px 10px 40px; color: #143342; background-color: #CFDEE5; margin-bottom: 10px; border-radius: 5px; }
+        .col-md-4 .box { color: #422D14; background-color: #E5DBCF; }
+        .col-md-4 .box ul { padding-left: 0; }
     </style>
 </head>
 <body>
@@ -44,22 +49,26 @@
 
 <div class="container">
     <div class="row">
-        <div class="col-sm-6">
-            <h2><i class="fa fa-rocket"></i> Grow your carrier</h2>
-            <ul>
-                <li>Give and receive honest, direct, constructive feedback</li>
-                <li>Walk through guided personal retrospectives</li>
-                <li>See how you improve over time</li>
-            </ul>
+        <div class="col-md-6">
+            <div class="box">
+                <h2><i class="fa fa-rocket"></i> Grow your carrier</h2>
+                <ul>
+                    <li>Give and receive honest, direct, constructive feedback</li>
+                    <li>Walk through guided personal retrospectives</li>
+                    <li>See how you improve over time</li>
+                </ul>
+            </div>
         </div>
 
-        <div class="col-sm-6">
-            <h2><i class="fa fa-group"></i> Empower your team</h2>
-            <ul>
-                <li>Share bonuses fairly and transparently</li>
-                <li>Evaluate candidates for promotion based on peer review</li>
-                <li>Check the health of your team</li>
-            </ul>
+        <div class="col-md-6">
+            <div class="box">
+                <h2><i class="fa fa-group"></i> Empower your team</h2>
+                <ul>
+                    <li>Share bonuses fairly and transparently</li>
+                    <li>Evaluate candidates for promotion based on peer review</li>
+                    <li>Check the health of your team</li>
+                </ul>
+            </div>
         </div>
     </div>
     <hr />
@@ -69,54 +78,71 @@
     <h1>Features</h1>
 
     <div class="row">
-        <div class="col-sm-4">
-            <h3>Direct feedback</h3>
-            <ul>
-                <li>Answer three simple questions</li>
-                <li>Anonymous, direct, constructive</li>
-            </ul>
+        <div class="col-md-4">
+            <div class="box">
+                <h3>Direct feedback</h3>
+                <ul>
+                    <li>Answer three simple questions</li>
+                    <li>Anonymous, direct, constructive</li>
+                </ul>
+            </div>
         </div>
-        <div class="col-sm-4">
-            <h3>Personal retrospective</h3>
-            <ul>
-                <li>Set aside time to reflect</li>
-                <li>Write what's on your mind or answer a set of targeted questions</li>
-            </ul>
+        <div class="col-md-4">
+            <div class="box">
+                <h3>Personal retrospective</h3>
+                <ul>
+                    <li>Set aside time to reflect</li>
+                    <li>Write what's on your mind or answer a set of targeted questions</li>
+                </ul>
+            </div>
         </div>
-        <div class="col-sm-4">
-            <h3>See how you improve over time</h3>
+        <div class="col-md-4">
+            <div class="box">
+                <h3>Improvement timeline</h3>
+                <ul>
+                    <li>See the feedback you got over time</li>
+                    <li>Compare current and historical results</li>
+                </ul>
+            </div>
         </div>
     </div>
 
     <div class="row">
-        <div class="col-sm-4">
-            <h3>Merit bonus</h3>
-            <ul>
-                <li>Set a budget for bonuses</li>
-                <li>Each team member can give the bonus to people who deserve it the most</li>
-            </ul>
+        <div class="col-md-4">
+            <div class="box">
+                <h3>Merit bonus</h3>
+                <ul>
+                    <li>Set a budget for bonuses</li>
+                    <li>Each team member can give the bonus to people who deserve it the most</li>
+                </ul>
+            </div>
         </div>
-        <div class="col-sm-4">
-            <h3>Peer promotion</h3>
-            <ul>
-                <li>Define expectations for promotion</li>
-                <li>Compare to others on the target level</li>
-                <li>Peer promote deserving candidates</li>
-            </ul>
+        <div class="col-md-4">
+            <div class="box">
+                <h3>Peer promotion</h3>
+                <ul>
+                    <li>Define expectations for promotion</li>
+                    <li>Compare to others on the target level</li>
+                    <li>Peer promote deserving candidates</li>
+                </ul>
+            </div>
         </div>
-        <div class="col-sm-4">
-            <h3>Team retrospective</h3>
-            <ul>
-                <li>Gather data</li>
-                <li>Generate insight</li>
-                <li>Decide what to do; together; remotely</li>
-            </ul>
+        <div class="col-md-4">
+            <div class="box">
+                <h3>Team retrospective</h3>
+                <ul>
+                    <li>Gather data</li>
+                    <li>Generate insight</li>
+                    <li>Decide what to do; together; remotely</li>
+                </ul>
+            </div>
         </div>
     </div>
     <hr />
 </div>
 
 <div class="container">
+    <h1>Sign up</h1>
     <div class="row">
 
 <!-- Begin MailChimp Signup Form -->
