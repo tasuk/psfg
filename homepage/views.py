@@ -1,6 +1,9 @@
 from django.shortcuts import redirect, render_to_response
 
 def index(request):
+    return redirect('/labs')
+
+def labs(request):
     return render_to_response('index.html')
 
 def mail(request):
