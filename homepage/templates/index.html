@@ -19,12 +19,12 @@
         h2, h3 { font-family: "Roboto Condensed"; font-weight: 300; }
         li { list-style-type: square; }
 
-        .well ul { margin-bottom: 0px; }
-        .well h2, .well h3 { margin-top: 0px; }
+        h2, h3 { margin-top: 0px; }
+        .list-group { padding: 0px; }
+        .list-group-item { padding: 20px; background-color: #F5F5F5; border-color: #E3E3E3; }
         .benefits .well .fa { font-size: 30px; position: absolute; }
         .benefits h2 { padding-left: 40px; }
-        .features .well .fa { color: #CCC; font-size: 30px; position: absolute; top: 20px; right: 35px; }
-        .features h3, .features .well ul { padding-left: 20px; }
+        .features h3, .features ul ul { padding-left: 20px; }
 
         form div { text-align: center; }
         .form-inline .form-control { text-align: center; width: 250px; margin: 5px; }
@@ -92,71 +92,62 @@
 <div class="container features">
     <h1>We will help you!</h1>
 
-    <div class="row equal">
-        <div class="col-md-4 col-sm-6">
-            <div class="well">
-                <i class="fa fa-rocket"></i>
-                <h3>Direct feedback</h3>
-                <ul>
-                    <li>Three simple questions</li>
-                    <li>Anonymous, direct, constructive</li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-            <div class="well">
-                <i class="fa fa-rocket"></i>
-                <h3>Personal retrospective</h3>
-                <ul>
-                    <li>Set aside time to reflect</li>
-                    <li>Write what’s on your mind or answer a set of targeted questions</li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-            <div class="well">
-                <i class="fa fa-rocket"></i>
-                <h3>Improvement timeline</h3>
-                <ul>
-                    <li>See the feedback you got over time</li>
-                    <li>Compare current and historical results</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h3>Direct feedback</h3>
+                    <ul>
+                        <li>Three simple questions</li>
+                        <li>Anonymous, direct, constructive</li>
+                    </ul>
+                </li>
 
-    <div class="row equal">
-        <div class="col-md-4 col-sm-6">
-            <div class="well">
-                <i class="fa fa-group"></i>
-                <h3>Merit bonus</h3>
-                <ul>
-                    <li>Set a budget for bonuses</li>
-                    <li>Each team member can give the bonus to people who deserve it the most</li>
-                </ul>
-            </div>
+                <li class="list-group-item">
+                    <h3>Personal retrospective</h3>
+                    <ul>
+                        <li>Set aside time to reflect</li>
+                        <li>Write what’s on your mind or answer a set of targeted questions</li>
+                    </ul>
+                </li>
+
+                <li class="list-group-item">
+                    <h3>Improvement timeline</h3>
+                    <ul>
+                        <li>See the feedback you got over time</li>
+                        <li>Compare current and historical results</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
-        <div class="col-md-4 col-sm-6">
-            <div class="well">
-                <i class="fa fa-group"></i>
-                <h3>Peer promotion</h3>
-                <ul>
-                    <li>Define expectations for promotion</li>
-                    <li>Compare to others on the target level</li>
-                    <li>Peer promote deserving candidates</li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-md-4 col-sm-6">
-            <div class="well">
-                <h3>Team retrospective</h3>
-                <i class="fa fa-group"></i>
-                <ul>
-                    <li>Gather data</li>
-                    <li>Generate insight</li>
-                    <li>Decide what to do; together; remotely</li>
-                </ul>
-            </div>
+
+        <div class="col-sm-6">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <h3>Merit bonus</h3>
+                    <ul>
+                        <li>Set a budget for bonuses</li>
+                        <li>Each team member can give the bonus to people who deserve it the most</li>
+                    </ul>
+                </li>
+                <li class="list-group-item">
+                    <h3>Peer promotion</h3>
+                    <ul>
+                        <li>Define expectations for promotion</li>
+                        <li>Compare to others on the target level</li>
+                        <li>Peer promote deserving candidates</li>
+                    </ul>
+                </li>
+
+                <li class="list-group-item">
+                    <h3>Team retrospective</h3>
+                    <ul>
+                        <li>Gather data</li>
+                        <li>Generate insight</li>
+                        <li>Decide what to do; together; remotely</li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
