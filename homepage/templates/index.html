@@ -29,6 +29,12 @@
         form div { text-align: center; }
         .form-inline .form-control { text-align: center; width: 250px; margin: 5px; }
         .form-control { font-size: 16px; display: inline-block; }
+
+        @media screen and (min-width: 768px) {
+            .row { display: flex; flex-direction: row; }
+            .well { flex: 1; }
+            .col-md-4, .col-sm-6 { display: flex; flex: 1; }
+        }
     </style>
 </head>
 <body>
@@ -93,7 +99,7 @@
     <h1>Coming soon, apps for...</h1>
 
     <div class="row">
-        <div class="col-md-4 col-sm-6">
+        <div class="col-md-4">
             <div class="well">
                 <i class="fa fa-rocket"></i>
                 <h3>Direct feedback</h3>
@@ -103,7 +109,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-md-4 col-sm-6">
+        <div class="col-md-4">
             <div class="well">
                 <i class="fa fa-rocket"></i>
                 <h3>Personal retrospective</h3>
@@ -113,7 +119,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-md-4 col-sm-6">
+        <div class="col-md-4">
             <div class="well">
                 <i class="fa fa-rocket"></i>
                 <h3>Improvement timeline</h3>
@@ -126,7 +132,7 @@
     </div>
 
     <div class="row">
-        <div class="col-md-4 col-sm-6">
+        <div class="col-md-4">
             <div class="well">
                 <i class="fa fa-group"></i>
                 <h3>Merit bonus</h3>
@@ -136,7 +142,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-md-4 col-sm-6">
+        <div class="col-md-4">
             <div class="well">
                 <i class="fa fa-group"></i>
                 <h3>Peer promotion</h3>
@@ -147,7 +153,7 @@
                 </ul>
             </div>
         </div>
-        <div class="col-md-4 col-sm-6">
+        <div class="col-md-4">
             <div class="well">
                 <h3>Team retrospective</h3>
                 <i class="fa fa-group"></i>
