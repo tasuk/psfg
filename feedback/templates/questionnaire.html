@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container benefits">
+    <form>
+        <div class="form-group">
+            <label for="workagain">Would you like to work with $name$ again?</label>
+            <input name="workagain" id="workagain" class="form-control" type="text"/>
+        </div>
+
+        <div class="form-group">
+            <label for="didenjoy">What did you enjoy the most when working with $name$?</label>
+            <textarea name="didenjoy" id="didenjoy" class="form-control" rows="5" placeholder="Please mention concrete events and your feelings associated with them."></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="didnotenjoy">What did you NOT enjoy when working with $name$?</label>
+            <textarea name="didnotenjoy" id="didnotenjoy" class="form-control" rows="5" placeholder="Please mention concrete events and your feelings associated with them."></textarea>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-default">Send feedback</button>
+        </div>
+    </form>
+</div>
+
+{% endblock %}
