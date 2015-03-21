@@ -1,71 +1,6 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>People Skills For Geeks</title>
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:100,300,400">
-    <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto+Condensed:300,400">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <style>
-        body { padding-top: 70px; font-family: "Roboto"; font-size: 16px; }
-        .navbar { font-family: "Roboto Condensed"; font-size: 20px; font-weight: 300; }
-        .navbar-brand { font-size: 30px; }
-        .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a { color: #BBB; }
+{% extends "base.html" %}
 
-        h1, .h1 { font-size: 36px; font-weight: 100; text-align: center; margin-top: 30px; }
-        h2, h3 { font-family: "Roboto Condensed"; font-weight: 300; }
-        li { list-style-type: square; }
-
-        .well ul { margin-bottom: 0px; }
-        .well h2, .well h3 { margin-top: 0px; }
-        .benefits .well .fa { font-size: 30px; position: absolute; }
-        .benefits h2 { padding-left: 40px; }
-        .features .well .fa { font-size: 30px; position: absolute; color: #CCC; top: 20px; right: 35px; }
-        .features h3, .features .well ul { padding-left: 20px; position: relative; }
-
-        form div { text-align: center; }
-        .form-inline .form-control { text-align: center; width: 250px; margin: 5px; }
-        .form-control { font-size: 16px; display: inline-block; }
-
-        @media screen and (min-width: 768px) {
-            .row { display: flex; flex-direction: row; }
-            .well { flex: 1; }
-            .col-md-4, .col-sm-6 { display: flex; flex: 1; }
-        }
-    </style>
-</head>
-<body>
-
-<nav class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">People Labs</a>
-        </div>
-
-        <div id="navbar" class="collapse navbar-collapse">
-            <!--
-            <ul class="nav navbar-nav">
-                <li><a href="#">Benefits</a></li>
-                <li><a href="#">Features</a></li>
-                <li><a href="#">Sign Up</a></li>
-            </ul>
-            -->
-            <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://eepurl.com/bcn2t5"><i class="fa fa-newspaper-o"></i> Newsletter</a></li>
-            <li><a href="http://www.meetup.com/People-Skills-for-Geeks"><i class="fa fa-coffee"></i> Meetup in Warsaw</a></li>
-            </ul>
-        </div>
-    </div>
-</nav>
+{% block content %}
 
 <div class="container benefits">
     <div class="row">
@@ -183,15 +118,4 @@
     </div>
 </div>
 
-<script>
-(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-ga('create', 'UA-60856003-1', 'auto');
-ga('send', 'pageview');
-</script>
-
-</body>
-</html>
+{% endblock %}
