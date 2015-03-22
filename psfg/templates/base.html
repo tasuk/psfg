@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,37 +10,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	{% block stylesheets %} {% endblock %}
-    <style>
-        body { padding-top: 70px; font-family: "Roboto"; font-size: 16px; }
-        .navbar { font-family: "Roboto Condensed"; font-size: 20px; font-weight: 300; }
-        .navbar-brand { font-size: 30px; }
-        .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a { color: #BBB; }
-
-        h1, .h1 { font-size: 36px; font-weight: 100; text-align: center; margin-top: 30px; }
-        h2, h3 { font-family: "Roboto Condensed"; font-weight: 300; }
-        li { list-style-type: square; }
-
-        .well ul { margin-bottom: 0px; }
-        .well h2, .well h3 { margin-top: 0px; }
-        .benefits .well .fa { font-size: 30px; position: absolute; }
-        .benefits h2 { padding-left: 40px; }
-        .features .well .fa { font-size: 30px; position: absolute; color: #CCC; top: 20px; right: 35px; }
-        .features h3, .features .well ul { padding-left: 20px; position: relative; }
-
-        .form-control { font-size: 16px; }
-
-        #signup-form { text-align: center; }
-        #signup-form input, #signup-form button { text-align: center; margin: auto; width: 250px; }
-
-        #questionnaire button { float: right; }
-
-        @media screen and (min-width: 768px) {
-            .row { display: flex; flex-direction: row; }
-            .well { flex: 1; }
-            .col-md-4, .col-sm-6 { display: flex; flex: 1; }
-        }
-    </style>
+    <link rel="stylesheet" href="{% static "css/base.css" %}">
+    {% block stylesheets %}{% endblock %}
 </head>
 <body>
 
