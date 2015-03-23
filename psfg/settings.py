@@ -30,12 +30,22 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = (
+    # cms
+    'cms',
+    'mptt',
+    'menus',
+    'sekizai',
+    'djangocms_admin_style',
+
+    # django defaults
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
+
     'psfg',
     'homepage',
     'feedback',
@@ -49,12 +59,57 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'cms.middleware.user.CurrentUserMiddleware',
+    'cms.middleware.page.CurrentPageMiddleware',
+    'cms.middleware.toolbar.ToolbarMiddleware',
+    'cms.middleware.language.LanguageCookieMiddleware',
 )
 
 ROOT_URLCONF = 'psfg.urls'
 
 WSGI_APPLICATION = 'psfg.wsgi.application'
 
+
+# Templates
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    'django.contrib.auth.context_processors.auth',
+    'django.contrib.messages.context_processors.messages',
+    'django.core.context_processors.i18n',
+    'django.core.context_processors.request',
+    'django.core.context_processors.media',
+    'django.core.context_processors.static',
+    'sekizai.context_processors.sekizai',
+    'cms.context_processors.cms_settings',
+)
+
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = "/static/"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
+
+TEMPLATE_DIRS = (
+    # The docs say it should be absolute path: BASE_DIR is precisely one.
+    # Life is wonderful!
+    os.path.join(BASE_DIR, "templates"),
+)
+
+CMS_TEMPLATES = (
+    ('article.html', 'Article'),
+)
+
+# Django-cms requirements
+
+SITE_ID = 1
+LANGUAGES = [ ('en-us', 'English') ]
+
+MIGRATION_MODULES = {
+    'cms': 'cms.migrations_django',
+    'menus': 'menus.migrations_django',
+}
+
+ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases

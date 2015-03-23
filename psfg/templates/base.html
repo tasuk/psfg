@@ -1,4 +1,4 @@
-{% load staticfiles %}
+{% load staticfiles cms_tags sekizai_tags %}
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,9 +11,13 @@
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static "css/base.css" %}">
+    {% render_block "css" %}
+    {% render_block "js" %}
     {% block stylesheets %}{% endblock %}
 </head>
 <body>
+
+{% cms_toolbar %}
 
 {% block navbar %}
 <nav class="navbar navbar-inverse navbar-fixed-top">
