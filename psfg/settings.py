@@ -90,8 +90,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
 
 TEMPLATE_DIRS = (
-    # The docs say it should be absolute path: BASE_DIR is precisely one.
-    # Life is wonderful!
     os.path.join(BASE_DIR, "templates"),
 )
 
@@ -102,7 +100,7 @@ CMS_TEMPLATES = (
 # Django-cms requirements
 
 SITE_ID = 1
-LANGUAGES = [ ('en-us', 'English') ]
+LANGUAGES = [ ('en', 'English') ]
 
 MIGRATION_MODULES = {
     'cms': 'cms.migrations_django',
@@ -124,7 +122,7 @@ DATABASES = {
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
 
