@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'menus',
     'sekizai',
     'djangocms_admin_style',
+    'djangocms_text_ckeditor',
 
     # django defaults
     'django.contrib.admin',
@@ -104,6 +105,7 @@ DATABASES = {
 MIGRATION_MODULES = {
     'cms': 'cms.migrations_django',
     'menus': 'menus.migrations_django',
+    'djangocms_text_ckeditor': 'djangocms_text_ckeditor.migrations_django',
 }
 
 # Internationalization
