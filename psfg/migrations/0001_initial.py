@@ -1,6 +1,10 @@
 from __future__ import unicode_literals
 from django.db import models, migrations
 from cms.api import create_page, add_plugin
+from django.contrib.auth.models import User
+
+def create_admin(apps, schema_editor):
+    User.objects.create_superuser('admin', 'admin@example.com', 'admin')
 
 def insert_sites(apps, schema_editor):
     """Populate the sites model"""
@@ -65,6 +69,7 @@ class Migration(migrations.Migration):
     ]
 
     operations = [
+        migrations.RunPython(create_admin),
         migrations.RunPython(insert_sites),
         migrations.RunPython(insert_cms_pages),
     ]
