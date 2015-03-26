@@ -66,8 +66,8 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'psfg.urls'
-
 WSGI_APPLICATION = 'psfg.wsgi.application'
+SITE_ID = 1
 
 
 # Templates
@@ -83,12 +83,6 @@ TEMPLATE_CONTEXT_PROCESSORS = (
     'cms.context_processors.cms_settings',
 )
 
-STATIC_ROOT = os.path.join(BASE_DIR, "static")
-STATIC_URL = "/static/"
-
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-MEDIA_URL = "/media/"
-
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, "templates"),
 )
@@ -96,18 +90,6 @@ TEMPLATE_DIRS = (
 CMS_TEMPLATES = (
     ('article.html', 'Article'),
 )
-
-# Django-cms requirements
-
-SITE_ID = 1
-LANGUAGES = [ ('en', 'English') ]
-
-MIGRATION_MODULES = {
-    'cms': 'cms.migrations_django',
-    'menus': 'menus.migrations_django',
-}
-
-ADMIN_MEDIA_PREFIX = '/static/admin/'
 
 # Database
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
@@ -119,9 +101,15 @@ DATABASES = {
     }
 }
 
+MIGRATION_MODULES = {
+    'cms': 'cms.migrations_django',
+    'menus': 'menus.migrations_django',
+}
+
 # Internationalization
 # https://docs.djangoproject.com/en/1.7/topics/i18n/
 
+LANGUAGES = [ ('en', 'English') ]
 LANGUAGE_CODE = 'en'
 
 TIME_ZONE = 'UTC'
@@ -136,4 +124,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.7/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, "static")
+STATIC_URL = "/static/"
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "media")
+MEDIA_URL = "/media/"
