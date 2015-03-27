@@ -133,3 +133,20 @@ STATIC_URL = "/static/"
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 MEDIA_URL = "/media/"
+
+# CKEditor
+
+CKEDITOR_SETTINGS = {
+    'allowedContent': 'p;a[!href];em;strong;h2;h3;h4;ul;ol;li;hr;pre;img[!src];table;tr;th;td',
+    'toolbar_CMS': [
+        ['Undo', 'Redo'],
+        ['ShowBlocks'],
+        ['Format'],
+        ['PasteText'],
+        ['Bold', 'Italic', '-', 'RemoveFormat'],
+        ['Link', 'Unlink'],
+        ['NumberedList', 'BulletedList', 'Table'],
+        ['Maximize'],
+        ['Source'],
+    ],
+}
