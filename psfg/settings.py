@@ -17,14 +17,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 # See https://docs.djangoproject.com/en/1.7/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'dp^806rgy5&ne^em!4fde3_a2%3$&xyjldr!txd1!r$b%(%p^y'
+# SECRET_KEY = 'intentionally commented out'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
+DEBUG = False
 TEMPLATE_DEBUG = True
-
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    '.peopleskillsforgeeks.com',
+]
 
 
 # Application definition
@@ -115,13 +115,9 @@ MIGRATION_MODULES = {
 
 LANGUAGES = [ ('en', 'English') ]
 LANGUAGE_CODE = 'en'
-
 TIME_ZONE = 'UTC'
-
 USE_I18N = True
-
 USE_L10N = True
-
 USE_TZ = True
 
 
@@ -150,3 +146,8 @@ CKEDITOR_SETTINGS = {
         ['Source'],
     ],
 }
+
+try:
+    from .local_settings import *
+except ImportError as e:
+    pass
