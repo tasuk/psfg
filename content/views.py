@@ -1,10 +1,5 @@
 from django.shortcuts import redirect, render_to_response
-
-def index(request):
-    return redirect('/labs')
-
-def labs(request):
-    return render_to_response('index.html')
+from django.template import RequestContext
 
 def mail(request):
     return redirect('http://eepurl.com/bcn2t5', True)

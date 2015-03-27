@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% load cms_tags %}
 
 {% block stylesheets %}
 <style>
@@ -13,61 +14,39 @@
         <div class="col-sm-6">
             <div class="well well-lg">
                 <i class="fa fa-rocket"></i>
-                <h2>Develop your skills</h2>
-                <ul>
-                    <li>See how you improve over time</li>
-                    <li>Give and receive honest, direct, constructive feedback</li>
-                    <li>Walk through guided personal retrospectives</li>
-                </ul>
+                {% placeholder "individual" %}
             </div>
         </div>
 
         <div class="col-sm-6">
             <div class="well well-lg">
                 <i class="fa fa-group"></i>
-                <h2>Empower your team</h2>
-                <ul>
-                    <li>Check the health of your team</li>
-                    <li>Share bonuses fairly and transparently</li>
-                    <li>Evaluate candidates for promotion based on peer review</li>
-                </ul>
+                {% placeholder "team" %}
             </div>
         </div>
     </div>
 </div>
 
 <div class="container features">
-    <h1>Coming soon, apps for...</h1>
+    <h1>{% placeholder "coming_soon" %}</h1>
 
     <div class="row">
         <div class="col-md-4">
             <div class="well">
                 <i class="fa fa-rocket"></i>
-                <h3>Direct feedback</h3>
-                <ul>
-                    <li>Three simple questions</li>
-                    <li>Anonymous, direct, constructive</li>
-                </ul>
+                {% placeholder "individual_box_1" %}
             </div>
         </div>
         <div class="col-md-4">
             <div class="well">
                 <i class="fa fa-rocket"></i>
-                <h3>Personal retrospective</h3>
-                <ul>
-                    <li>Set aside time to reflect</li>
-                    <li>Write what’s on your mind or answer a set of targeted questions</li>
-                </ul>
+                {% placeholder "individual_box_2" %}
             </div>
         </div>
         <div class="col-md-4">
             <div class="well">
                 <i class="fa fa-rocket"></i>
-                <h3>Improvement timeline</h3>
-                <ul>
-                    <li>See the feedback you got over time</li>
-                    <li>Compare current and historical results</li>
-                </ul>
+                {% placeholder "individual_box_3" %}
             </div>
         </div>
     </div>
@@ -76,32 +55,19 @@
         <div class="col-md-4">
             <div class="well">
                 <i class="fa fa-group"></i>
-                <h3>Merit bonus</h3>
-                <ul>
-                    <li>Set a budget for bonuses</li>
-                    <li>Each team member can give the bonus to people who deserve it the most</li>
-                </ul>
+                {% placeholder "team_box_1" %}
             </div>
         </div>
         <div class="col-md-4">
             <div class="well">
                 <i class="fa fa-group"></i>
-                <h3>Peer promotion</h3>
-                <ul>
-                    <li>Define expectations for promotion</li>
-                    <li>Compare to others on the target level</li>
-                    <li>Peer promote deserving candidates</li>
-                </ul>
+                {% placeholder "team_box_2" %}
             </div>
         </div>
         <div class="col-md-4">
             <div class="well">
-                <h3>Team retrospective</h3>
                 <i class="fa fa-group"></i>
-                <ul>
-                    <li>Gather data and generate insight.</li>
-                    <li>Decide what to do. Together. Remotely.</li>
-                </ul>
+                {% placeholder "team_box_3" %}
             </div>
         </div>
     </div>
@@ -110,7 +76,7 @@
 <div id="signup-form" class="container">
     <div id="mc_embed_signup">
         <form action="//fluidcircle.us3.list-manage.com/subscribe/post?u=47b4c221878d6aafcb56c62d5&amp;id=3143a6ac20" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate form" target="_blank" novalidate>
-            <label for="mce-EMAIL" class="h1">I want this!</label>
+            <label for="mce-EMAIL" class="h1">{% placeholder "want_this" %}</label>
             <div class="form-group">
                 <input type="email" value="" name="EMAIL" class="required email form-control" id="mce-EMAIL" placeholder="Your email address">
             </div>

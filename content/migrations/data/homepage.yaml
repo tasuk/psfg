@@ -1,0 +1,57 @@
+individual: |
+    <h2>Develop your skills</h2>
+    <ul>
+        <li>See how you improve over time</li>
+        <li>Give and receive honest, direct, constructive feedback</li>
+        <li>Walk through guided personal retrospectives</li>
+    </ul>
+team: |
+    <h2>Empower your team</h2>
+    <ul>
+        <li>Check the health of your team</li>
+        <li>Share bonuses fairly and transparently</li>
+        <li>Evaluate candidates for promotion based on peer review</li>
+    </ul>
+
+coming_soon: Coming soon, apps for...
+
+individual_box_1: |
+    <h3>Direct feedback</h3>
+    <ul>
+        <li>Three simple questions</li>
+        <li>Anonymous, direct, constructive</li>
+    </ul>
+individual_box_2: |
+    <h3>Personal retrospective</h3>
+    <ul>
+        <li>Set aside time to reflect</li>
+        <li>Write what’s on your mind or answer a set of targeted questions</li>
+    </ul>
+individual_box_3: |
+    <h3>Improvement timeline</h3>
+    <ul>
+        <li>See the feedback you got over time</li>
+        <li>Compare current and historical results</li>
+    </ul>
+
+team_box_1: |
+    <h3>Merit bonus</h3>
+    <ul>
+        <li>Set a budget for bonuses</li>
+        <li>Each team member can give the bonus to people who deserve it the most</li>
+    </ul>
+team_box_2: |
+    <h3>Peer promotion</h3>
+    <ul>
+        <li>Define expectations for promotion</li>
+        <li>Compare to others on the target level</li>
+        <li>Peer promote deserving candidates</li>
+    </ul>
+team_box_3: |
+    <h3>Team retrospective</h3>
+    <ul>
+        <li>Gather data and generate insight.</li>
+        <li>Decide what to do. Together. Remotely.</li>
+    </ul>
+
+want_this: I want this!
