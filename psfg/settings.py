@@ -89,8 +89,9 @@ TEMPLATE_DIRS = (
 )
 
 CMS_TEMPLATES = (
-    ('articlelist.html', 'Article List'),
-    ('article.html', 'Article'),
+    ('content/home.html', 'Homepage'),
+    ('content/articlelist.html', 'Article List'),
+    ('content/article.html', 'Article'),
 )
 
 # Database

@@ -17,13 +17,13 @@ def insert_cms_pages(apps, schema_editor):
 
     homepage = create_page(
         title='Homepage',
-        template='article.html',
+        template='content/home.html',
         language='en',
         published=True,
     )
     articlelist = create_page(
         title='Articles',
-        template='articlelist.html',
+        template='content/articlelist.html',
         language='en',
         parent=homepage,
         published=True,
@@ -31,7 +31,7 @@ def insert_cms_pages(apps, schema_editor):
 
     base = create_page(
         title='Base Article - do not delete, copy to create articles',
-        template='article.html',
+        template='content/article.html',
         language='en',
         parent=articlelist,
         in_navigation=True,
@@ -39,7 +39,7 @@ def insert_cms_pages(apps, schema_editor):
     )
     test = create_page(
         title='Test Article',
-        template='article.html',
+        template='content/article.html',
         language='en',
         parent=articlelist,
         in_navigation=True,
@@ -47,7 +47,7 @@ def insert_cms_pages(apps, schema_editor):
     )
     another = create_page(
         title='Another Test',
-        template='article.html',
+        template='content/article.html',
         language='en',
         parent=articlelist,
         in_navigation=True,
