@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 from django.db import models, migrations
-from cms.api import create_page, add_plugin
+from cms.api import create_page, add_plugin, publish_page
 from django.contrib.auth.models import User
 from os.path import dirname
 import yaml
@@ -22,6 +22,9 @@ def populate(page, data):
             language='en',
             body=data[key],
         )
+
+    if page.is_published('en'):
+        publish_page(page, User.objects.all()[0], 'en')
 
 def insert_cms_pages(apps, schema_editor):
     """Populate cms with structure and dummy pages"""
@@ -52,6 +55,7 @@ def insert_cms_pages(apps, schema_editor):
         in_navigation=True,
         published=False,
     )
+    populate(base, { 'article': 'Hello, world!' })
     test = create_page(
         title='Test Article',
         template='content/article.html',
@@ -60,6 +64,7 @@ def insert_cms_pages(apps, schema_editor):
         in_navigation=True,
         published=True,
     )
+    populate(test, { 'article': '<h2>Subheading</h2><p>Some text</p>' })
     another = create_page(
         title='Another Test',
         template='content/article.html',
@@ -68,14 +73,7 @@ def insert_cms_pages(apps, schema_editor):
         in_navigation=True,
         published=True,
     )
-
-    for article in [ base, test, another ]:
-        add_plugin(
-            placeholder=article.placeholders.get(slot='article'),
-            plugin_type='TextPlugin',
-            language='en',
-            body='Hello, world.',
-        )
+    populate(another, { 'article': 'A journey of a thousand miles begins with a single step.' })
 
 
 class Migration(migrations.Migration):
