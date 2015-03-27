@@ -2,6 +2,8 @@ from __future__ import unicode_literals
 from django.db import models, migrations
 from cms.api import create_page, add_plugin
 from django.contrib.auth.models import User
+from os.path import dirname
+import yaml
 
 def create_admin(apps, schema_editor):
     User.objects.create_superuser('admin', 'admin@example.com', 'admin')
@@ -12,6 +14,15 @@ def insert_sites(apps, schema_editor):
     Site.objects.all().delete()
     Site.objects.create(domain='peopleskillsforgeeks.com', name='psfg')
 
+def populate(page, data):
+    for key in data:
+        add_plugin(
+            placeholder=page.placeholders.get(slot=key),
+            plugin_type='TextPlugin',
+            language='en',
+            body=data[key],
+        )
+
 def insert_cms_pages(apps, schema_editor):
     """Populate cms with structure and dummy pages"""
 
@@ -21,6 +32,10 @@ def insert_cms_pages(apps, schema_editor):
         language='en',
         published=True,
     )
+
+    with open(dirname(__file__) + '/data/homepage.yaml') as data_file:
+        populate(homepage, yaml.safe_load(data_file))
+
     articlelist = create_page(
         title='Articles',
         template='content/articlelist.html',
