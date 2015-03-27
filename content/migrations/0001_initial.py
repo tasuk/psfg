@@ -66,6 +66,8 @@ def insert_cms_pages(apps, schema_editor):
 class Migration(migrations.Migration):
     dependencies = [
         ('sites', '0001_initial'),
+        ('menus', '0001_initial'),
+        ('djangocms_text_ckeditor', '0001_initial'),
     ]
 
     operations = [

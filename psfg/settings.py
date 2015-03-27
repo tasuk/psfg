@@ -48,7 +48,7 @@ INSTALLED_APPS = (
     'django.contrib.sites',
 
     'psfg',
-    'homepage',
+    'content',
     'feedback',
 )
 
