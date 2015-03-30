@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block stylesheets %}
+<style>
+    #questionnaire button { float: right; }
+    @media screen and (min-width: 1200px) {
+        textarea.form-control { min-height: 200px; }
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+    {% include "form.html" %}
+{% endblock %}

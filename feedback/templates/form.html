@@ -1,20 +1,8 @@
-{% extends "base.html" %}
-
-{% block stylesheets %}
-<style>
-    #questionnaire button { float: right; }
-    @media screen and (min-width: 1200px) {
-        textarea.form-control { min-height: 200px; }
-    }
-</style>
-{% endblock %}
-
-{% block content %}
 <div id="questionnaire" class="container">
     <form>
         <div class="row">
             <div class="col-lg-4">
-                <label for="workagain">Would you like to work with $name$ again?</label>
+                <label for="workagain">Would you like to work with <span class="asker-name">{{ questionnaire.asker_name }}</span> again?</label>
                 <div class="form-group">
                     <div class="radio"><label>
                         <input type="radio" name="workagain" id="workagain" value="1">I'd rather be quartered
@@ -39,7 +27,7 @@
 
             <div class="col-lg-4">
                 <div class="form-group">
-                    <label for="didenjoy">What did you enjoy the most when working with $name$?</label>
+                    <label for="didenjoy">What did you enjoy the most when working with <span class="asker-name">{{ questionnaire.asker_name }}</span>?</label>
                     <textarea name="didenjoy" id="didenjoy" class="form-control" rows="5" placeholder="Please mention concrete events and your feelings associated with them."></textarea>
                 </div>
             </div>
@@ -47,7 +35,7 @@
             <div class="col-lg-4">
                 <div class="form-group">
                     <div class="form-group">
-                        <label for="didnotenjoy">What did you NOT enjoy when working with $name$?</label>
+                        <label for="didnotenjoy">What did you NOT enjoy when working with <span class="asker-name">{{ questionnaire.asker_name }}</span>?</label>
                         <textarea name="didnotenjoy" id="didnotenjoy" class="form-control" rows="5" placeholder="Please mention concrete events and your feelings associated with them."></textarea>
                     </div>
                 </div>
@@ -59,5 +47,3 @@
         </div>
     </form>
 </div>
-
-{% endblock %}
