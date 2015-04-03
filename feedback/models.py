@@ -1,19 +1,42 @@
+import random
+
 from django.core.urlresolvers import reverse
 from django.db import models
 
 # This is an utter abomination, but hey, we're prototyping!
 
+def create_identifier(length):
+    def get_random(string):
+        return random.SystemRandom().choice(string)
+
+    return ''.join(
+        get_random('bcdfghjklmnpqrstvwxz') + get_random('aeiouy')
+        for _ in range(int(length / 2))
+    )
+
 class Questionnaire(models.Model):
-    public_id = models.CharField(max_length=16, unique=True)
+    public_id = models.CharField(max_length=10, unique=True)
+    token = models.CharField(max_length=20)
     name = models.CharField(max_length=100, blank=True)
     asker_email = models.CharField(max_length=200)
     asker_name = models.CharField(max_length=200)
+
+    def create(asker_email, asker_name):
+        return Questionnaire(
+            public_id=create_identifier(8),
+            token=create_identifier(20),
+            asker_email=asker_email,
+            asker_name=asker_name,
+        )
 
     def __str__(self):
         return "%s (%s)" % (self.name, self.public_id)
 
     def get_url(self):
         return reverse('give', kwargs={'public_id': self.public_id})
+
+    def get_admin_url(self):
+        return reverse('review', kwargs={'public_id': self.public_id, 'token': self.token})
 
 class Feedback(models.Model):
     questionnaire = models.ForeignKey(Questionnaire)
