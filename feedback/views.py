@@ -22,8 +22,21 @@ def ask(request):
 
     return render(request, 'ask.html')
 
-def give(request):
+def give(request, public_id):
+    if request.method == 'POST':
+        feedback = Feedback()
+        feedback.questionnaire = Questionnaire.objects.get(public_id=public_id)
+        feedback.workagain = request.POST['workagain']
+        feedback.didenjoy = request.POST['didenjoy']
+        feedback.didnotenjoy = request.POST['didnotenjoy']
+        feedback.save()
+
+        return redirect('thanks')
+
     return render(request, 'give.html')
 
-def review(request):
+def thanks(request):
+    return render(request, 'thanks.html')
+
+def review(request, public_id, token):
     pass
