@@ -39,4 +39,8 @@ def thanks(request):
     return render(request, 'thanks.html')
 
 def review(request, public_id, token):
-    pass
+    # exception on invalid token
+    questionnaire = Questionnaire.objects.get(public_id=public_id, token=token)
+    feedbacks = Feedback.objects.filter(questionnaire=questionnaire)
+
+    return render(request, 'review.html', {'feedbacks': feedbacks})
