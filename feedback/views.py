@@ -10,7 +10,9 @@ def ask(request):
             request.POST['asker_email'],
             request.POST['asker_name'],
         )
+
         questionnaire.save()
+        questionnaire.send_admin_link(request)
 
         return render(request, 'create.html', {
             'form_url': request.build_absolute_uri(questionnaire.get_url()),

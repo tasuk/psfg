@@ -1,7 +1,9 @@
-import random
+import mandrill, random
 
+from django.conf import settings
 from django.core.urlresolvers import reverse
 from django.db import models
+from django.template import loader
 
 # This is an utter abomination, but hey, we're prototyping!
 
@@ -37,6 +39,26 @@ class Questionnaire(models.Model):
 
     def get_admin_url(self):
         return reverse('review', kwargs={'public_id': self.public_id, 'token': self.token})
+
+    def send_admin_link(self, request):
+        mandrill_client = mandrill.Mandrill(settings.MANDRILL_API_KEY)
+        mandrill_client.messages.send({
+            'from_email': 'info@peopleskillsforgeeks.com',
+            'from_name': 'People Skills For Geeks',
+            'subject': 'Feedback Form',
+            'html': loader.render_to_string('emails/admin_link.html', {
+                'asker_name': self.asker_name,
+                'form_url': request.build_absolute_uri(self.get_url()),
+                'form_admin_url': request.build_absolute_uri(self.get_admin_url()),
+            }),
+            'auto_text': True,
+            'to': [{
+                'email': self.asker_email,
+                'name': self.asker_name,
+            }],
+            'track_clicks': False,
+            'track_opens': False,
+        })
 
 class Feedback(models.Model):
     questionnaire = models.ForeignKey(Questionnaire)
