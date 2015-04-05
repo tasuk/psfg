@@ -47,4 +47,7 @@ def review(request, public_id, token):
     questionnaire = Questionnaire.objects.get(public_id=public_id, token=token)
     feedbacks = Feedback.objects.filter(questionnaire=questionnaire)
 
-    return render(request, 'review.html', {'feedbacks': feedbacks})
+    return render(request, 'review.html', {
+        'feedbacks': feedbacks,
+        'form_url': request.build_absolute_uri(questionnaire.get_url()),
+    })

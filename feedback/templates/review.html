@@ -4,6 +4,7 @@
 <div class="container">
     <h1>Review your feedback</h1>
 
+    {% if feedbacks %}
     <table class="table table-striped">
         <thead>
             <tr>
@@ -23,5 +24,8 @@
             {% endfor %}
         </tbody>
     </table>
+    {% else %}
+    <p>You've received no feedback yet. Perhaps share the link to your feedback form: <a href="{{ form_url }}">{{ form_url }}</a></p>
+    {% endif %}
 </div>
 {% endblock %}
