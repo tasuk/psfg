@@ -2,20 +2,26 @@
 
 {% block content %}
 <div class="container">
-    <table class="table table-striped">
-        <tr>
-            <th>Would they like to work with you again</th>
-            <th>What they enjoyed the most when working with you</th>
-            <th>What they did NOT enjoy when working with you</th>
-        </tr>
+    <h1>Review your feedback</h1>
 
-        {% for feedback in feedbacks %}
-        <tr>
-            <td>{{ feedback.workagain }}</td>
-            <td>{{ feedback.didenjoy }}</td>
-            <td>{{ feedback.didnotenjoy }}</td>
-        </tr>
-        {% endfor %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Would they like to work with you again?</th>
+                <th>What they enjoyed the most when working with you</th>
+                <th>What they did NOT enjoy when working with you</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for feedback in feedbacks %}
+            <tr>
+                <td>{{ feedback.get_workagain_choice }}</td>
+                <td>{{ feedback.didenjoy }}</td>
+                <td>{{ feedback.didnotenjoy }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
     </table>
 </div>
 {% endblock %}

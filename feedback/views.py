@@ -20,7 +20,9 @@ def ask(request):
             'form_url': request.build_absolute_uri(questionnaire.get_url()),
         })
 
-    return render(request, 'ask.html')
+    return render(request, 'ask.html', {
+        'workagain_options': Feedback.workagain_options,
+    })
 
 def give(request, public_id):
     if request.method == 'POST':
@@ -33,7 +35,9 @@ def give(request, public_id):
 
         return redirect('thanks')
 
-    return render(request, 'give.html')
+    return render(request, 'give.html', {
+        'workagain_options': Feedback.workagain_options,
+    })
 
 def thanks(request):
     return render(request, 'thanks.html')

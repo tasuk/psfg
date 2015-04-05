@@ -4,24 +4,11 @@
             <div class="col-lg-4">
                 <label for="workagain">Would you like to work with <span class="asker-name">{{ questionnaire.asker_name }}</span> again?</label>
                 <div class="form-group">
-                    <div class="radio"><label>
-                        <input type="radio" name="workagain" id="workagain" required value="1">I'd rather be quartered
-                    </label></div>
-                    <div class="radio"><label>
-                        <input type="radio" name="workagain" id="workagain" required value="2">I'd rather not
-                    </label></div>
-                    <div class="radio"><label>
-                        <input type="radio" name="workagain" id="workagain" required value="3"> I wouldn't mind
-                    </label></div>
-                    <div class="radio"><label>
-                        <input type="radio" name="workagain" id="workagain" required value="4"> I'd be happy to
-                    </label></div>
-                    <div class="radio"><label>
-                        <input type="radio" name="workagain" id="workagain" required value="5"> Very much so
-                    </label></div>
-                    <div class="radio"><label>
-                        <input type="radio" name="workagain" id="workagain" required value="6"> More than anything
-                    </label></div>
+                    {% for key,option in workagain_options.items %}
+                    <div class="radio">
+                        <label><input type="radio" name="workagain" id="workagain" required value="{{ key }}"> {{ option.give }}</label>
+                    </div>
+                    {% endfor %}
                 </div>
             </div>
 

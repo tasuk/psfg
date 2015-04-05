@@ -45,6 +45,15 @@ class Feedback(models.Model):
     didenjoy = models.TextField(blank=True)
     didnotenjoy = models.TextField(blank=True)
 
+    workagain_options = {
+        1: {"give": "I'd rather be quartered", "review": "They'd rather be quartered"},
+        2: {"give": "I'd rather not", "review": "They'd rather not"},
+        3: {"give": "I wouldn't mind", "review": "They wouldn't mind"},
+        4: {"give": "I'd be happy to", "review": "They'd be happy to"},
+        5: {"give": "Very much so", "review": "Very much so"},
+        6: {"give": "More than anything", "review": "More than anything"},
+    }
+
     def __str__(self):
         return "For %s (%s); %s (%i)" % (
             self.questionnaire.name,
@@ -52,3 +61,6 @@ class Feedback(models.Model):
             self.giver_name,
             self.id,
         )
+
+    def get_workagain_choice(self):
+        return self.workagain_options[self.workagain]['review']
