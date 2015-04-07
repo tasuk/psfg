@@ -21,7 +21,7 @@ class Questionnaire(models.Model):
     asker_email = models.CharField(max_length=200)
     asker_name = models.CharField(max_length=200)
 
-    def create(asker_email, asker_name):
+    def create(self, asker_email, asker_name):
         return Questionnaire(
             public_id=create_identifier(8),
             token=create_identifier(20),
