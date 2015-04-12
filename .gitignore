@@ -2,3 +2,4 @@
 db.*
 psfg/local_settings.py
 feedback/migrations
+.idea
