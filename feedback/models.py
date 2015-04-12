@@ -46,12 +46,12 @@ class Feedback(models.Model):
     didnotenjoy = models.TextField(blank=True)
 
     workagain_options = {
-        1: {"give": "I'd rather be quartered", "review": "They'd rather be quartered"},
-        2: {"give": "I'd rather not", "review": "They'd rather not"},
-        3: {"give": "I wouldn't mind", "review": "They wouldn't mind"},
-        4: {"give": "I'd be happy to", "review": "They'd be happy to"},
-        5: {"give": "Very much so", "review": "Very much so"},
-        6: {"give": "More than anything", "review": "More than anything"},
+        6: {"give": "I'd rather be quartered", "review": "They'd rather be quartered"},
+        5: {"give": "I'd rather not", "review": "They'd rather not"},
+        4: {"give": "I wouldn't mind", "review": "They wouldn't mind"},
+        3: {"give": "I'd be happy to", "review": "They'd be happy to"},
+        2: {"give": "Very much so", "review": "Very much so"},
+        1: {"give": "More than anything", "review": "More than anything"},
     }
 
     def __str__(self):
