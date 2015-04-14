@@ -8,7 +8,7 @@ def index(request):
 
 def ask(request):
     if request.method == 'POST':
-        questionnaire = Questionnaire().create(
+        questionnaire = Questionnaire.create(
             request.POST['asker_email'],
             request.POST['asker_name'],
         )
