@@ -8,9 +8,12 @@ In the future: Who knows...
 Install
 =======
 
-Install Python3, pip, then install requirements:
+Install Python3, pip, and set up a virtualenv. Install requirements:
 
     pip install -r requirements.txt
+
+Copy `psfg/local_settings.py.template` to `psfg/local_settings.py` and change
+the settings to your needs.
 
 Don't commit migrations in the repo until go live, instead, generate them on
 the fly:
@@ -21,6 +24,8 @@ Run migrations:
 
     python manage.py migrate
 
-Run the dev server:
+Start the dev server:
 
     python manage.py runserver
+
+See the site at http://127.0.0.1:8000/

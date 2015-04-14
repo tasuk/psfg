@@ -1,35 +1,67 @@
+import random
+
+from django.core.urlresolvers import reverse
 from django.db import models
 
-class User(models.Model):
-    email = models.CharField(max_length=200)
+# This is an utter abomination, but hey, we're prototyping!
+
+def create_identifier(length):
+    def get_random(string):
+        return random.SystemRandom().choice(string)
+
+    return ''.join(
+        get_random('bcdfghjklmnpqrstvwxz') + get_random('aeiouy')
+        for _ in range(int(length / 2))
+    )
 
 class Questionnaire(models.Model):
-    name = models.CharField(max_length=200)
+    public_id = models.CharField(max_length=10, unique=True)
+    token = models.CharField(max_length=20)
+    name = models.CharField(max_length=100, blank=True)
+    asker_email = models.CharField(max_length=200)
+    asker_name = models.CharField(max_length=200)
 
-class Question(models.Model):
-    TEXT = 't'
-    CHOICE = 'c'
+    @classmethod
+    def create(self, asker_email, asker_name):
+        return self(
+            public_id=create_identifier(8),
+            token=create_identifier(20),
+            asker_email=asker_email,
+            asker_name=asker_name,
+        )
 
-    questionnaire = models.ForeignKey(Questionnaire)
-    label = models.CharField(max_length=200)
-    question_type = models.CharField(max_length=1, choices=(
-        (TEXT, 'text'),
-        (CHOICE, 'choice'),
-    ))
-    mandatory = models.BooleanField(default=False)
-    order = models.IntegerField()
+    def __str__(self):
+        return "%s (%s)" % (self.name, self.public_id)
 
-class Option(models.Model):
-    question = models.ForeignKey(Question)
-    name = models.CharField(max_length=200)
-    label = models.CharField(max_length=200)
-    order = models.IntegerField()
+    def get_url(self):
+        return reverse('give', kwargs={'public_id': self.public_id})
+
+    def get_admin_url(self):
+        return reverse('review', kwargs={'public_id': self.public_id, 'token': self.token})
 
 class Feedback(models.Model):
     questionnaire = models.ForeignKey(Questionnaire)
-    creator = models.ForeignKey(User, related_name='feedback_creator')
-    answerer = models.ForeignKey(User, related_name='feedback_answerer', blank=True, null=True)
+    giver_name = models.CharField(max_length=200, blank=True)
+    workagain = models.IntegerField()
+    didenjoy = models.TextField(blank=True)
+    didnotenjoy = models.TextField(blank=True)
 
-class Answer(models.Model):
-    feedback = models.ForeignKey(Feedback)
-    answer = models.CharField(max_length=200)
+    workagain_options = {
+        6: {"give": "I'd rather be quartered", "review": "They'd rather be quartered"},
+        5: {"give": "I'd rather not", "review": "They'd rather not"},
+        4: {"give": "I wouldn't mind", "review": "They wouldn't mind"},
+        3: {"give": "I'd be happy to", "review": "They'd be happy to"},
+        2: {"give": "Very much so", "review": "Very much so"},
+        1: {"give": "More than anything", "review": "More than anything"},
+    }
+
+    def __str__(self):
+        return "For %s (%s); %s (%i)" % (
+            self.questionnaire.name,
+            self.questionnaire.public_id,
+            self.giver_name,
+            self.id,
+        )
+
+    def get_workagain_choice(self):
+        return self.workagain_options[self.workagain]['review']

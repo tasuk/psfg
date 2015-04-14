@@ -1,0 +1,36 @@
+<div id="questionnaire" class="container">
+    <form method="post">
+        <div class="row">
+            <div class="col-lg-4">
+                <label for="workagain">Would you like to work with <span class="asker-name">{{ questionnaire.asker_name }}</span> again?</label>
+                <div class="form-group">
+                    {% for key,option in workagain_options.items %}
+                    <div class="radio">
+                        <label><input type="radio" name="workagain" id="workagain" required value="{{ key }}"> {{ option.give }}</label>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <label for="didenjoy">What did you enjoy the most when working with <span class="asker-name">{{ questionnaire.asker_name }}</span>?</label>
+                    <textarea name="didenjoy" id="didenjoy" class="form-control" rows="5" placeholder="Please mention specific events and your feelings associated with them."></textarea>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="form-group">
+                    <div class="form-group">
+                        <label for="didnotenjoy">What did you NOT enjoy when working with <span class="asker-name">{{ questionnaire.asker_name }}</span>?</label>
+                        <textarea name="didnotenjoy" id="didnotenjoy" class="form-control" rows="5" placeholder="Please mention specific events and your feelings associated with them."></textarea>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-default">Send feedback</button>
+        </div>
+    </form>
+</div>

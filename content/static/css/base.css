@@ -3,7 +3,7 @@ body { padding-top: 70px; font-family: "Roboto"; font-size: 16px; text-rendering
 .navbar-brand { font-size: 30px; }
 .navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav>li>a { color: #BBB; }
 
-h1, .h1 { font-size: 36px; font-weight: 100; text-align: center; margin-top: 30px; }
+h1, .h1 { font-size: 36px; font-weight: 100; margin-top: 30px; }
 h2, h3 { font-family: "Roboto Condensed"; font-weight: 300; }
 li { list-style-type: square; }
 

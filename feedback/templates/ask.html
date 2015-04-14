@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block stylesheets %}
+<style>
+    button { float: right; }
+    @media screen and (min-width: 1200px) {
+        textarea.form-control { min-height: 200px; }
+    }
+</style>
+{% endblock %}
+
+{% block scripts %}
+<script>
+    $(function() {
+        $('#questionnaire :input').prop("disabled", true);
+
+        var name_placeholders = $('.asker-name');
+        name_placeholders.html('<em>John Doe</em>');
+
+        $('#asker-name').on('input', function() {
+            name_placeholders.text($('#asker-name').val());
+        });
+    });
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="container" id="ask">
+    <h1>Ask for feedback</h1>
+
+    <div class="row">
+        <div class="col-md-6">
+            <form method="post">
+                <div class="form-group">
+                    <input class="form-control" type="text" id="asker-name" name="asker_name" required placeholder="Your name, as will appear on the form" />
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="email" name="asker_email" required placeholder="Your email address" />
+                </div>
+                <!--
+                <div class="form-group">
+                    <input class="form-control" type="text" name="name" placeholder="Feedback form name" />
+                    <p>Optional, only for your reference, eg. "Company, Project, 2020"</p>
+                </div>
+                -->
+                <div class="form-group clearfix">
+                    <button class="btn btn-default" type="submit">Create feedback form</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="col-md-6">
+            <p>We'll send a link for reviewing the results to your email address.</p>
+            <p>You can create several feedback forms for different occasions.</p>
+            <p>We won't spam you!</p>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h1>Your form will look like this:</h1>
+</div>
+{% include "form.html" %}
+{% endblock %}

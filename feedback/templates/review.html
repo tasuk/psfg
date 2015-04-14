@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+    <h1>Review your feedback</h1>
+
+    {% if feedbacks %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Would they like to work with you again?</th>
+                <th>What they enjoyed the most when working with you</th>
+                <th>What they did NOT enjoy when working with you</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            {% for feedback in feedbacks %}
+            <tr>
+                <td>{{ feedback.get_workagain_choice }}</td>
+                <td>{{ feedback.didenjoy }}</td>
+                <td>{{ feedback.didnotenjoy }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>You've received no feedback yet. Perhaps share the link to your feedback form: <a href="{{ form_url }}">{{ form_url }}</a></p>
+    {% endif %}
+</div>
+{% endblock %}
